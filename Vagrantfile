@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     config.vm.define vm_name do |node|
 
       node.vm.box_check_update = false
-      node.vm.box = "bento/ubuntu-18.04"
+      node.vm.box = "bento/ubuntu-16.04"
       node.vm.hostname = vm_name
       node.vm.network "private_network", ip: vm_ip
       # config.vm.synced_folder "../data", "/vagrant_data"
@@ -28,9 +28,6 @@ Vagrant.configure("2") do |config|
         # 设置基本配置
         /vagrant/.setting/config.sh
 
-        # 安装基本组件
-        # /vagrant/.setting/install.sh
-
         # 添加用户，用户名：ifneolse，密码：ifnoesle
         /vagrant/.setting/add_user.sh ifnoelse ifnoelse
 
@@ -41,6 +38,9 @@ Vagrant.configure("2") do |config|
         for i in "#{vms.map{|k,v|"#{k}    #{v}"}.join('" "')}";do echo $i>>/etc/hosts;done
 
         sed -i '1d' /etc/hosts
+
+        # 安装基本组件
+        /vagrant/.setting/install.sh
       SHELL
       # node.ssh.private_key_path = ".setting/private_key"
       # node.ssh.username = "ifnoelse"
