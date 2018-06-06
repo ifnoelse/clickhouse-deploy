@@ -2,7 +2,7 @@
 function install {
     install_pip
     install_ansible
-    install_docker
+#    install_docker
 }
 function install_pip {
     wget https://bootstrap.pypa.io/get-pip.py -O -|python
