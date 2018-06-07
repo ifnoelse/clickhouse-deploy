@@ -1,9 +1,7 @@
-- name: "安装 kubernetes master load balance"
+- name: "安装 clickhouse"
   gather_facts: no
-  hosts: lb
+  hosts: client
   roles:
-  - { role: kubernetes_master_lb }
-  - { role: systemd, name: haproxy, state: started,enabled: yes }
-  - { role: systemd, name: keepalived, state: started,enabled: yes }
+  - { role: clickhouse_server }
   tags:
-  - kubernetes_master_lb
+  - clickhouse_server
