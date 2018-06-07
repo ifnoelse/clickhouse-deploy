@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
         # 设置基本配置
         /vagrant/.setting/config.sh
 
-        # 添加用户，用户名：ifneolse，密码：ifnoesle
+        # 添加用户，用户名：ifnoelse，密码：ifnoelse
         /vagrant/.setting/add_user.sh ifnoelse ifnoelse
 
         # 设置用户ssh key登陆
