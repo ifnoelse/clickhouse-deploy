@@ -1,0 +1,26 @@
+- name: 创建临时目录
+  become: true
+  file:
+    path: "{{tmp_dir}}"
+    state: directory
+
+- name: 复制 deb 安装文件
+  become: true
+  copy:
+    src: "{{res_dir}}/{{item}}"
+    dest: "{{tmp_dir}}"
+    mode: 0755
+  with_items:
+  - "{{deb_files}}"
+
+- name: 安装 clickhouse
+  become: true
+  shell: "dpkg -i {{tmp_dir}}/{{item}}"
+  with_items:
+  - "{{deb_files}}"
+
+- name: 复制 metrika.xml
+  become: true
+  template:
+    src: metrika.xml
+    dest: /etc/metrika.xml

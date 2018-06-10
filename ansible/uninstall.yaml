@@ -1,7 +1,7 @@
 - name: "删除 helm"
   gather_facts: no
-  hosts: client[0]
+  hosts: clickhouse
   roles:
-  - del_helm
+  - del_clickhouse
   tags:
-  - del_helm
+  - del_clickhouse

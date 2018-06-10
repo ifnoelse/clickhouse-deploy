@@ -1,5 +1,0 @@
-- name: 复制 metrika.xml
-  become: true
-  template:
-    src: metrika.xml
-    dest: /etc/metrika.xml

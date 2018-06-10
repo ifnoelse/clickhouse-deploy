@@ -1,7 +1,7 @@
 - name: "安装 clickhouse"
   gather_facts: no
-  hosts: client
+  hosts: clickhouse
   roles:
-  - { role: clickhouse_server }
+  - { role: clickhouse }
   tags:
-  - clickhouse_server
+  - clickhouse

@@ -1,0 +1,30 @@
+- name: 删除临时目录
+  become: true
+  file:
+    path: "{{tmp_dir}}"
+    state: absent
+
+- name: 检测 clickhouse-server 服务文件是否存在
+  stat:
+    path: /etc/systemd/system/clickhouse-server.service
+  register: file
+
+- name: 停止 etcd 服务
+  become: true
+  systemd:
+    state: stopped
+    enabled: no
+    name: clickhouse-server
+  when: file.stat.exists == true
+
+- name: 卸载 clickhouse
+  become: true
+  shell: "dpkg -P {{item}}"
+  with_items:
+  - "{{clickhouse_component}}"
+
+- name: 删除 metrika.xml
+  become: true
+  file:
+    path: /etc/metrika.xml
+    state: absent

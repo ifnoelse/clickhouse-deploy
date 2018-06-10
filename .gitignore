@@ -2,3 +2,4 @@
 .idea/
 .vagrant/
 clickhouse-deploy.iml
+res/

@@ -1,9 +1,6 @@
 all:
   children:
-    client:
-      hosts:
-        node-1:
-    server:
+    clickhouse:
       hosts:
         node-1:
         node-2:

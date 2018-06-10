@@ -1,0 +1,14 @@
+tmp_dir: /home/ifnoelse/clickhouse-deploy/install_files #安装过程中的临时目录
+res_dir: /vagrant/res #安装文件所在目录，也就是res文件夹所在目录
+
+clickhouse_version: 1.1.54385
+
+clickhouse_component:
+- clickhouse-client
+- clickhouse-server
+- clickhouse-common-static
+
+deb_files:
+- "clickhouse-common-static_{{clickhouse_version}}_amd64.deb"
+- "clickhouse-server_{{clickhouse_version}}_amd64.deb"
+- "clickhouse-client_{{clickhouse_version}}_amd64.deb"
