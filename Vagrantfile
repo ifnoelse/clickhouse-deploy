@@ -42,7 +42,9 @@ Vagrant.configure("2") do |config|
         sed -i '1d' /etc/hosts
 
         # 安装基本组件
-        /vagrant/.setting/install.sh
+        # /vagrant/.setting/install.sh
+
+        if [ "node-1" == "#{vm_name}" ];then apt-get install -y ansible;fi
       SHELL
       # node.ssh.private_key_path = ".setting/private_key"
       # node.ssh.username = "ifnoelse"
