@@ -5,3 +5,11 @@
   - { role: clickhouse }
   tags:
   - clickhouse
+
+- name: "启动 clickhouse"
+  gather_facts: no
+  hosts: clickhouse
+  roles:
+  - { role: systemd, name: clickhouse-server,state: started,enabled: yes }
+  tags:
+  - start_clickhouse

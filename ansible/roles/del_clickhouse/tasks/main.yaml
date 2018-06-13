@@ -9,7 +9,7 @@
     path: /etc/systemd/system/clickhouse-server.service
   register: file
 
-- name: 停止 etcd 服务
+- name: 停止 clickhouse server 服务
   become: true
   systemd:
     state: stopped
@@ -27,4 +27,10 @@
   become: true
   file:
     path: /etc/metrika.xml
+    state: absent
+
+- name: 删除 clickhouse 相关目录
+  become: true
+  file:
+    path: /var/lib/clickhouse
     state: absent

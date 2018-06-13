@@ -24,3 +24,9 @@
   template:
     src: metrika.xml
     dest: /etc/metrika.xml
+
+- name: 复制 config.xml
+  become: true
+  template:
+    src: config.xml
+    dest: /etc/clickhouse-server/config.xml

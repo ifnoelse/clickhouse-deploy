@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
         # 安装基本组件
         # /vagrant/.setting/install.sh
 
-        if [ "node-1" == "#{vm_name}" ];then apt-get install -y ansible;fi
+        if [ "node-1" == "#{vm_name}" ];then wget https://bootstrap.pypa.io/get-pip.py -O -|python && pip install ansible==2.4.4;fi
       SHELL
       # node.ssh.private_key_path = ".setting/private_key"
       # node.ssh.username = "ifnoelse"

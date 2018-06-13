@@ -1,0 +1,7 @@
+- name: "{{name}} {{state}}"
+  become: true
+  systemd:
+    enabled: "{{enabled}}"
+    daemon_reload: yes
+    name: "{{name}}"
+    state: "{{state}}"

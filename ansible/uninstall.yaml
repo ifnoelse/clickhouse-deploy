@@ -1,4 +1,4 @@
-- name: "删除 helm"
+- name: "删除 clickhouse"
   gather_facts: no
   hosts: clickhouse
   roles:
